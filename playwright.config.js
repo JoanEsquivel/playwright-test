@@ -37,14 +37,21 @@ module.exports = defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // Setup project
+    { name: 'setup', testMatch: /.*\.setup\.js/,
+      use:{user: 'joanmedia', password: 'Test1234*'}
+    },
+
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], user: 'user1', env_var: process.env.ENVVAR },
+      use: { ...devices['Desktop Chrome'], user: 'user1', env_var: process.env.ENVVAR, storageState: './.auth/user.json' },
+      dependencies: ['setup']
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], user: 'user2', env_var: process.env.ENVVAR },
+      use: { ...devices['Desktop Firefox'], user: 'user2', env_var: process.env.ENVVAR, storageState: './.auth/user.json', },
+      dependencies: ['setup']
     },
 
     // {

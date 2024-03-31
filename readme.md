@@ -67,3 +67,8 @@ Check how to do change it here -> https://playwright.dev/docs/test-parallel#para
 ## Limit failures and fail fast
 Playwright Test will stop after reaching this number of failed tests and skip any tests that were not executed yet. This is useful to avoid wasting resources on broken test suites.
 ``` npx playwright test -g "parallel" --workers 2 --max-failures=3 ```
+
+## Authentication demo
+References: Basic: shared account in all tests -> https://playwright.dev/docs/auth#basic-shared-account-in-all-tests
+
+``` npx playwright test -g "auth" --headed --workers 2```
